@@ -74,8 +74,8 @@ class TestEmailTemplates(unittest.TestCase):
 
     def test_dispatcher_dry_run(self):
         dispatcher = EmailDispatcher(
-            username="test@gmail.com",
-            password="testpassword",
+            username="mock_user@example.com",
+            password="dummy_mock_token_12345",  # ggignore
             recipients="admin@example.com"
         )
         self.assertTrue(dispatcher.is_configured())
