@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Cyber Threat Intelligence Portal</title>
+    <meta name="description" content="Proactive multi-source cybersecurity threat intelligence dashboard tracking CISA KEV, NIST NVD, and open-source vulnerabilities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand">
+                <div class="brand-icon">🛡️</div>
+                <div>
+                    <h1 class="brand-title">Global Threat Monitor</h1>
+                    <div class="brand-subtitle">Proactive Telemetry: CISA KEV &bull; NIST NVD &bull; GitHub Advisories &bull; EPSS</div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="sync-badge" id="syncStatus">
+                    <span class="status-dot"></span>
+                    <span id="lastUpdatedText">Loading telemetry...</span>
+                </div>
+                <button class="btn btn-secondary" id="exportJsonBtn" title="Download raw JSON data">⬇️ Export JSON</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <!-- KPI Metrics Ribbon -->
+        <section class="kpi-grid">
+            <div class="kpi-card kpi-cisa">
+                <div class="kpi-header">
+                    <span class="kpi-title">Active Exploits</span>
+                    <span class="kpi-badge badge-red">CISA KEV</span>
+                </div>
+                <div class="kpi-value" id="kpiKevCount">0</div>
+                <div class="kpi-subtext">Verified real-world attacks</div>
+            </div>
+
+            <div class="kpi-card kpi-critical">
+                <div class="kpi-header">
+                    <span class="kpi-title">Critical Threats</span>
+                    <span class="kpi-badge badge-rose">CVSS ≥ 9.0</span>
+                </div>
+                <div class="kpi-value" id="kpiCriticalCount">0</div>
+                <div class="kpi-subtext">Immediate intervention required</div>
+            </div>
+
+            <div class="kpi-card kpi-high">
+                <div class="kpi-header">
+                    <span class="kpi-title">High Severity</span>
+                    <span class="kpi-badge badge-amber">CVSS 7.0 - 8.9</span>
+                </div>
+                <div class="kpi-value" id="kpiHighCount">0</div>
+                <div class="kpi-subtext">Requires scheduled patch window</div>
+            </div>
+
+            <div class="kpi-card kpi-total">
+                <div class="kpi-header">
+                    <span class="kpi-title">Total Tracked</span>
+                    <span class="kpi-badge badge-blue">Canonical CVEs</span>
+                </div>
+                <div class="kpi-value" id="kpiTotalCount">0</div>
+                <div class="kpi-subtext">Deduplicated cross-source records</div>
+            </div>
+        </section>
+
+        <!-- Search & Filter Controls -->
+        <section class="controls-card">
+            <div class="search-row">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search by CVE ID, product, vendor, or keyword (e.g., Next.js, AWS, Postgres, OpenSSL)...">
+                    <button class="clear-btn" id="clearSearchBtn" title="Clear search">&times;</button>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="severitySelect">Severity:</label>
+                    <select id="severitySelect" class="select-dropdown">
+                        <option value="ALL">All Severities</option>
+                        <option value="KEV">🔥 CISA KEV (Active Exploits)</option>
+                        <option value="CRITICAL">Critical (CVSS 9+)</option>
+                        <option value="HIGH">High</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="LOW">Low</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="auditFilterSelect">Audit Status:</label>
+                    <select id="auditFilterSelect" class="select-dropdown">
+                        <option value="ALL">All Items</option>
+                        <option value="UNAUDITED">⚠️ Action Needed</option>
+                        <option value="AUDITED">✅ Audited / Mitigated</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="tabs-wrapper" id="categoryTabs">
+                <button class="tab-btn active" data-category="ALL">All Categories</button>
+                <button class="tab-btn" data-category="Cloud & Infrastructure">Cloud & Infra</button>
+                <button class="tab-btn" data-category="Web & Application Frameworks">Web Frameworks</button>
+                <button class="tab-btn" data-category="Databases & Storage">Databases</button>
+                <button class="tab-btn" data-category="Operating Systems & Runtimes">OS & Runtimes</button>
+                <button class="tab-btn" data-category="Networking & Security Hardware">Networking</button>
+                <button class="tab-btn" data-category="AI & Emerging Technologies">AI & LLMs</button>
+                <button class="tab-btn" data-category="Enterprise Software">Enterprise</button>
+            </div>
+
+            <!-- Technology Filter Chips -->
+            <div class="tech-chips-wrapper" id="techChipsContainer">
+                <span class="chips-label">Quick Filter:</span>
+                <button class="tech-chip" data-tech="Next.js">Next.js</button>
+                <button class="tech-chip" data-tech="React">React</button>
+                <button class="tech-chip" data-tech="Node.js">Node.js</button>
+                <button class="tech-chip" data-tech="AWS">AWS</button>
+                <button class="tech-chip" data-tech="PostgreSQL">PostgreSQL</button>
+                <button class="tech-chip" data-tech="Docker">Docker</button>
+                <button class="tech-chip" data-tech="Linux">Linux</button>
+                <button class="tech-chip" data-tech="PHP">PHP</button>
+                <button class="tech-chip" data-tech="OpenSSL">OpenSSL</button>
+            </div>
+        </section>
+
+        <!-- Threat Feed List -->
+        <section class="threats-section">
+            <div class="section-header">
+                <h2 class="section-title">Telemetry Threat Feed</h2>
+                <span class="results-count" id="resultsCount">Showing 0 threats</span>
+            </div>
+
+            <div class="threat-cards-container" id="threatCardsContainer">
+                <!-- Dynamically populated via app.js -->
+            </div>
+
+            <div class="pagination-wrapper" id="paginationWrapper" style="display:none;">
+                <button class="btn btn-secondary" id="prevPageBtn">Previous</button>
+                <span class="page-indicator" id="pageIndicator">Page 1 of 1</span>
+                <button class="btn btn-secondary" id="nextPageBtn">Next</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div>
+                <b>Global Cyber Threat Monitor</b> &bull; Fully Automated Pipeline via GitHub Actions
+            </div>
+            <div class="footer-sub">
+                Official Sources: CISA Known Exploited Vulnerabilities Catalog &bull; NIST National Vulnerability Database &bull; GitHub Security Advisories &bull; FIRST EPSS
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

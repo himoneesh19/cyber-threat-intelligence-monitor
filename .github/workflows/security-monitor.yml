@@ -1,0 +1,119 @@
+name: Global Security Monitor
+
+on:
+  # schedule:
+  #   # Runs every 30 minutes (Uncomment to activate automated periodic polling)
+  #   - cron: "0,30 * * * *"
+  workflow_dispatch:
+    inputs:
+      test_email:
+        description: "Send a test verification email"
+        required: false
+        type: boolean
+        default: false
+      force_digest:
+        description: "Force generating the daily digest email regardless of current time"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: security-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    name: Telemetry Scan & Alerting
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Execute Threat Monitor Pipeline
+        env:
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+          URGENT_CVSS_THRESHOLD: ${{ vars.URGENT_CVSS_THRESHOLD }}
+          SEND_EMPTY_DAILY_DIGEST: ${{ vars.SEND_EMPTY_DAILY_DIGEST }}
+          SEND_TEST_EMAIL: ${{ vars.SEND_TEST_EMAIL || inputs.test_email }}
+        run: |
+          EXTRA_FLAGS=""
+          if [ "${{ inputs.force_digest }}" = "true" ]; then
+            EXTRA_FLAGS="$EXTRA_FLAGS --force-digest"
+          fi
+          if [ "${{ inputs.test_email }}" = "true" ]; then
+            EXTRA_FLAGS="$EXTRA_FLAGS --test-email"
+          fi
+          python src/main.py $EXTRA_FLAGS
+
+      - name: Commit State & Web Portal Updates
+        run: |
+          # Only commit if seen state or portal data actually changed
+          if ! git diff --quiet -- data/seen.json docs/portal/data/threats.json; then
+            echo "Changes detected in threat telemetry or portal data. Committing state..."
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/seen.json docs/portal/data/threats.json docs/portal/
+            git commit -m "Update threat intelligence state & portal [skip ci]"
+            git pull --rebase origin main || true
+            git push
+          else
+            echo "No new threats observed in this cycle. Skipping commit."
+          fi
+
+      - name: Notify on Pipeline Failure (Dead-Man Alert)
+        if: failure()
+        env:
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          RUN_ID: ${{ github.run_id }}
+          REPO: ${{ github.repository }}
+        run: |
+          python3 -c "
+          import os, smtplib
+          from email.message import EmailMessage
+
+          u = os.getenv('SMTP_USERNAME', '').strip()
+          p = os.getenv('SMTP_APP_PASSWORD', '').replace(' ', '').strip()
+          r = os.getenv('ALERT_EMAIL', '').strip()
+          run_id = os.getenv('RUN_ID', '')
+          repo = os.getenv('REPO', '')
+
+          if u and p and r:
+              msg = EmailMessage()
+              msg['From'] = f'Cyber Threat Monitor <{u}>'
+              msg['To'] = r
+              msg['Subject'] = '⚠️ [ALERT] Cyber Threat Monitor Workflow Execution Failure'
+              run_url = f'https://github.com/{repo}/actions/runs/{run_id}'
+              msg.set_content(f'The automated security monitor workflow failed to execute.\nInspect GitHub Actions run logs at:\n{run_url}\n')
+              try:
+                  with smtplib.SMTP('smtp.gmail.com', 587, timeout=20) as s:
+                      s.ehlo()
+                      s.starttls()
+                      s.ehlo()
+                      s.login(u, p)
+                      s.send_message(msg)
+                  print('Sent failure alert email.')
+              except Exception as e:
+                  print(f'Could not send failure alert: {e}')
+          " || true

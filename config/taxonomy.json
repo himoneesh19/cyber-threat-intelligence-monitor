@@ -1,0 +1,80 @@
+{
+  "categories": {
+    "Cloud & Infrastructure": {
+      "keywords": [
+        "aws", "amazon web services", "s3", "iam", "ec2", "lambda", "ecs", "eks",
+        "azure", "microsoft azure", "gcp", "google cloud", "cloud storage",
+        "kubernetes", "k8s", "docker", "containerd", "podman", "terraform",
+        "helm", "cloudflare", "openshift", "serverless", "cloud-native"
+      ]
+    },
+    "Web & Application Frameworks": {
+      "keywords": [
+        "next.js", "nextjs", "react", "reactjs", "node.js", "nodejs", "express",
+        "vue", "angular", "php", "laravel", "symfony", "wordpress", "drupal",
+        "django", "flask", "fastapi", "spring boot", "spring framework", "ruby on rails",
+        "rails", "asp.net", "dotnet", ".net core", "apache http", "nginx", "tomcat",
+        "graphql", "rest api", "jwt", "oauth"
+      ]
+    },
+    "Databases & Storage": {
+      "keywords": [
+        "postgres", "postgresql", "mysql", "mariadb", "mongodb", "redis",
+        "sqlite", "elasticsearch", "opensearch", "cassandra", "couchdb",
+        "dynamodb", "neo4j", "oracle database", "sql server", "mssql", "clickhouse"
+      ]
+    },
+    "Operating Systems & Runtimes": {
+      "keywords": [
+        "linux", "ubuntu", "debian", "red hat", "rhel", "centos", "rocky linux",
+        "alpine", "windows", "windows server", "macos", "apple ios", "android",
+        "kernel", "glibc", "systemd", "openssl", "gnutls", "curl", "libcurl",
+        "python", "openjdk", "golang", "rust"
+      ]
+    },
+    "Networking & Security Hardware": {
+      "keywords": [
+        "cisco", "fortinet", "fortios", "palo alto", "pan-os", "f5", "big-ip",
+        "juniper", "junos", "sonicwall", "sophos", "vpn", "ipsec", "wireguard",
+        "openvpn", "ssh", "openssh", "dns", "bind9", "bgp", "router", "firewall"
+      ]
+    },
+    "Enterprise Software": {
+      "keywords": [
+        "active directory", "azure ad", "entra id", "okta", "microsoft 365",
+        "exchange server", "sharepoint", "confluence", "jira", "atlassian",
+        "gitlab", "github enterprise", "jenkins", "salesforce", "slack", "zoom"
+      ]
+    },
+    "AI & Emerging Technologies": {
+      "keywords": [
+        "pytorch", "tensorflow", "keras", "huggingface", "transformers", "langchain",
+        "llama", "ollama", "vllm", "milvus", "chroma", "qdrant", "vector database",
+        "openai", "anthropic", "gemini", "whisper", "deep learning", "machine learning model"
+      ]
+    },
+    "Global Cyber Threats & Exploits": {
+      "keywords": [
+        "ransomware", "zero-day", "0-day", "apt", "nation-state", "lockbit",
+        "blackcat", "supply chain attack", "backdoor", "actively exploited",
+        "remote code execution", "privilege escalation", "authentication bypass"
+      ]
+    }
+  },
+  "technology_aliases": {
+    "next.js": ["nextjs", "next.js"],
+    "react": ["react", "reactjs", "react-dom"],
+    "node.js": ["nodejs", "node.js", "node"],
+    "php": ["php"],
+    "postgresql": ["postgres", "postgresql"],
+    "mysql": ["mysql", "mariadb"],
+    "aws": ["aws", "amazon web services", "amazon"],
+    "docker": ["docker", "containerd", "moby"],
+    "kubernetes": ["k8s", "kubernetes"],
+    "linux": ["linux", "kernel"],
+    "redis": ["redis"],
+    "mongodb": ["mongodb", "mongo"],
+    "python": ["python", "pypi"],
+    "openssl": ["openssl"]
+  }
+}

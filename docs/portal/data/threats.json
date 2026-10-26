@@ -1,0 +1,368 @@
+{
+  "generated_at": "2026-10-23T12:56:31.792126+00:00",
+  "total_threats": 11,
+  "threats": [
+    {
+      "cve_id": "CVE-2026-115560",
+      "title": "[Breaking News] PHP Warns of Another Unpatched RCE Two Days After Emergency PHP2Shell Patches",
+      "severity": "CRITICAL",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": null,
+      "epss_percentile": null,
+      "summary": "PHP has warned of another way an attacker could run code on a web server, two days after it shipped emergency fixes for the critical PHP2Shell flaws. The new issue, assigned CVE-2026-115560, affects only web applications configured in an unusual way, and PHP considers it an unlikely risk.The project is not issuing an emergency fix for it. Instead, it recommends turning off a feature called",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/urgent-php-warns-of-another-unpatched.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/urgent-php-warns-of-another-unpatched.html"
+      ],
+      "published_at": "Fri, 23 Oct 2026 16:55:43 +0530",
+      "updated_at": "Fri, 23 Oct 2026 16:55:43 +0530",
+      "category": "Web & Application Frameworks",
+      "technologies": [
+        "PHP"
+      ],
+      "is_urgent": true,
+      "urgent_reasons": [
+        "Critical Severity (CVSS 9+)"
+      ],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "CVE-2026-111497",
+      "title": "[Breaking News] Researchers Demonstrate Node2Shell RCE Exploit on Node.js Build Using Crafted Brotli Data",
+      "severity": "CRITICAL",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": null,
+      "epss_percentile": null,
+      "summary": "Malicious Brotli data can make an application on an official build of Node.js run attacker-supplied code, security researchers at Imperva have&nbsp;demonstrated. Their \"Node2Shell\" proof of concept ran code on the official Node.js 24.22.0 image for Linux arm64, with no debugger or custom build, by feeding crafted data to the bundled Brotli decoder (CVE-2026-111497). Node.js disclosed the flaw",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html"
+      ],
+      "published_at": "Fri, 23 Oct 2026 14:10:43 +0530",
+      "updated_at": "Fri, 23 Oct 2026 14:10:43 +0530",
+      "category": "Web & Application Frameworks",
+      "technologies": [
+        "Linux",
+        "Node.js"
+      ],
+      "is_urgent": true,
+      "urgent_reasons": [
+        "Critical Severity (CVSS 9+)"
+      ],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "THN:ARISTA-WARNS-OF-CRITICAL-VELOCLOUD-SQL-I",
+      "title": "[Breaking News] Arista Warns of Critical VeloCloud SQL Injection Zero-Day Exploited in Attacks",
+      "severity": "CRITICAL",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": null,
+      "epss_percentile": null,
+      "summary": "Attackers are exploiting a zero-day SQL injection flaw in Arista's VeloCloud Orchestrator (VCO), the&nbsp;central management system&nbsp;for VeloCloud SD-WAN networks, the company said in an&nbsp;advisory&nbsp;on October 22. The flaw lets anyone who can log in to the orchestrator, even with a read-only customer account, gain operator privileges, the top level of control over it. For",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html"
+      ],
+      "published_at": "Fri, 23 Oct 2026 00:35:17 +0530",
+      "updated_at": "Fri, 23 Oct 2026 00:35:17 +0530",
+      "category": "Global Cyber Threats & Exploits",
+      "technologies": [],
+      "is_urgent": true,
+      "urgent_reasons": [
+        "Critical Severity (CVSS 9+)"
+      ],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "THN:THREATSDAY-AI-SECRETS-LEAK-PINGCAP-SOU",
+      "title": "[Breaking News] ThreatsDay: AI Secrets Leak, PingCAP Source Theft, Signal Hang-Up Flaw, Laravel Auth Bypass + 21 More",
+      "severity": "CRITICAL",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": null,
+      "epss_percentile": null,
+      "summary": "This week has already been rough for cybersecurity. Critical PHP and GitLab RCE flaws, serious Linux security bugs, compromised eMudhra certificates, a Node.js RCE flaw, a hacked LiteLLM release, and hundreds of hijacked Tor relays. That's a lot to deal with in just a few days. And the week isn't even over yet. But those big headlines are only half the story. Stolen passwords, exposed",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html"
+      ],
+      "published_at": "Thu, 22 Oct 2026 23:15:44 +0530",
+      "updated_at": "Thu, 22 Oct 2026 23:15:44 +0530",
+      "category": "Web & Application Frameworks",
+      "technologies": [
+        "Linux",
+        "Node.js",
+        "PHP"
+      ],
+      "is_urgent": true,
+      "urgent_reasons": [
+        "Critical Severity (CVSS 9+)"
+      ],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "THN:TWO-CVSS-9-0-LINUX-KSMBD-RCE-FLAWS-DISCL",
+      "title": "[Breaking News] Two CVSS 9.0 Linux KSMBD RCE Flaws Disclosed on Public Mailing Lists Before Kernel Fixes",
+      "severity": "CRITICAL",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": null,
+      "epss_percentile": null,
+      "summary": "Linux servers running KSMBD, the kernel's built-in SMB server, are exposed to two publicly reported remote code execution flaws rated 9.0 by&nbsp;Trend Micro's Zero Day Initiative, with no fix yet in the mainline kernel. One of them, ZDI-CAN-33774, can be triggered before any network authentication. The other, ZDI-CAN-33549, requires the SMB Direct transport and an RDMA-capable network",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/two-cvss-90-linux-ksmbd-rce-flaws.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/two-cvss-90-linux-ksmbd-rce-flaws.html"
+      ],
+      "published_at": "Thu, 22 Oct 2026 22:31:53 +0530",
+      "updated_at": "Thu, 22 Oct 2026 22:31:53 +0530",
+      "category": "Operating Systems & Runtimes",
+      "technologies": [
+        "Linux"
+      ],
+      "is_urgent": true,
+      "urgent_reasons": [
+        "Critical Severity (CVSS 9+)"
+      ],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "THN:NODE-JS-BROTLI-DECODER-BUG-COULD-ALLOW-R",
+      "title": "[Breaking News] Node.js Brotli Decoder Bug Could Allow Remote Code Execution in All Supported Versions",
+      "severity": "CRITICAL",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": null,
+      "epss_percentile": null,
+      "summary": "Node.js released&nbsp;security updates&nbsp;on October 21 for its three supported release lines, 22.x, 24.x and 26.x, fixing 10 flaws. The most serious is a bug in the Brotli decompression code that Node.js bundles, which the project says can allow remote code execution, meaning an attacker could run code of their choosing on the affected system. Each supported line has one fixed version:&nbsp;",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html"
+      ],
+      "published_at": "Thu, 22 Oct 2026 13:17:22 +0530",
+      "updated_at": "Thu, 22 Oct 2026 13:17:22 +0530",
+      "category": "Web & Application Frameworks",
+      "technologies": [
+        "Node.js"
+      ],
+      "is_urgent": true,
+      "urgent_reasons": [
+        "Critical Severity (CVSS 9+)"
+      ],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "THN:CRITICAL-GITLAB-FLAW-CVSS-10-0-COULD-A",
+      "title": "[Breaking News] Critical GitLab Flaw (CVSS 10.0) Could Allow Unauthenticated RCE Across 12 Years of Releases",
+      "severity": "CRITICAL",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": null,
+      "epss_percentile": null,
+      "summary": "GitLab released fixes on October 21 for a flaw that lets an attacker run code on a self-managed server without logging in, and it affects every version of the software going back to 7.0, released in 2014. The fix matters even for administrators who patched nine days earlier: the October 12 update covered only versions 19.2 and later, and the new fixed versions sit one patch above it, so an",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html"
+      ],
+      "published_at": "Thu, 22 Oct 2026 00:27:34 +0530",
+      "updated_at": "Thu, 22 Oct 2026 00:27:34 +0530",
+      "category": "Enterprise Software",
+      "technologies": [],
+      "is_urgent": true,
+      "urgent_reasons": [
+        "Critical Severity (CVSS 9+)"
+      ],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "THN:PHP-ISSUES-EMERGENCY-PATCHES-FOR-TWO-CRI",
+      "title": "[Breaking News] PHP Issues Emergency Patches for Two Critical PHP2Shell RCE Flaws as Exploit Attempts Emerge",
+      "severity": "CRITICAL",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": null,
+      "epss_percentile": null,
+      "summary": "PHP has released emergency updates that fix two critical flaws in the language itself, letting an attacker without an account run code on a web server. The fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35, and the PHP team says only updating fully protects a server. The flaws, together called PHP2Shell, sit in the PHP runtime, not in any application, so a site is exposed even when its own",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/php-issues-emergency-patches-for-two.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/php-issues-emergency-patches-for-two.html"
+      ],
+      "published_at": "Wed, 21 Oct 2026 19:30:00 +0530",
+      "updated_at": "Wed, 21 Oct 2026 19:30:00 +0530",
+      "category": "Web & Application Frameworks",
+      "technologies": [
+        "PHP"
+      ],
+      "is_urgent": true,
+      "urgent_reasons": [
+        "Critical Severity (CVSS 9+)"
+      ],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "CVE-2026-109619",
+      "title": "[Breaking News] PHP2Shell Exploit Attempts Hit Millions as Attackers Try to Deploy Mirai Malware",
+      "severity": "HIGH",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": 0.05757,
+      "epss_percentile": 0.93049,
+      "summary": "Threat actors have been observed unsuccessfully attempting to exploit the newly disclosed PHP2Shell vulnerabilities to rope infected systems into a Mirai botnet variant called Potassium, as it emerges that weaponizing the flaws may be harder than previously thought. The attacks aim to exploit CVE-2026-109618 and CVE-2026-109619 (CVSS scores: 9.2), which can result in unauthenticated remote",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html"
+      ],
+      "published_at": "Fri, 23 Oct 2026 13:10:45 +0530",
+      "updated_at": "Fri, 23 Oct 2026 13:10:45 +0530",
+      "category": "General Security & Vulnerabilities",
+      "technologies": [],
+      "is_urgent": false,
+      "urgent_reasons": [],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "CVE-2026-109618",
+      "title": "[Breaking News] PHP2Shell Exploit Attempts Hit Millions as Attackers Try to Deploy Mirai Malware",
+      "severity": "HIGH",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": 0.05307,
+      "epss_percentile": 0.92563,
+      "summary": "Threat actors have been observed unsuccessfully attempting to exploit the newly disclosed PHP2Shell vulnerabilities to rope infected systems into a Mirai botnet variant called Potassium, as it emerges that weaponizing the flaws may be harder than previously thought. The attacks aim to exploit CVE-2026-109618 and CVE-2026-109619 (CVSS scores: 9.2), which can result in unauthenticated remote",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html"
+      ],
+      "published_at": "Fri, 23 Oct 2026 13:10:45 +0530",
+      "updated_at": "Fri, 23 Oct 2026 13:10:45 +0530",
+      "category": "General Security & Vulnerabilities",
+      "technologies": [],
+      "is_urgent": false,
+      "urgent_reasons": [],
+      "first_seen_utc": "2026-10-23T12:56:31.791803+00:00"
+    },
+    {
+      "cve_id": "CVE-2026-112900",
+      "title": "[Breaking News] Critical Flaw in Python\u2019s Popular Pillow Image Library Allows Code Execution via a Crafted Image",
+      "severity": "HIGH",
+      "cvss_score": null,
+      "is_cisa_kev": false,
+      "cisa_required_action": "Review vendor guidance and apply recommended mitigations.",
+      "cisa_due_date": "",
+      "known_ransomware": "Unknown",
+      "epss_score": 0.00431,
+      "epss_percentile": 0.36338,
+      "summary": "Pillow, the most widely used image library for Python, can be made to run operating system commands on a server by specifying the name of a file it is told to open. The flaw,&nbsp;CVE-2026-112900, is in the way Pillow handles EPS images, which it opens by passing the file's name to Ghostscript, a separate program it runs to turn the image into pixels, without checking the name first.",
+      "packages": [],
+      "sources": [
+        {
+          "name": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html"
+        }
+      ],
+      "references": [
+        "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html"
+      ],
+      "published_at": "Fri, 23 Oct 2026 15:06:00 +0530",
+      "updated_at": "Fri, 23 Oct 2026 15:06:00 +0530",
+      "category": "Operating Systems & Runtimes",
+      "technologies": [
+        "Python"
+      ],
+      "is_urgent": false,
+      "urgent_reasons": []
+    }
+  ]
+}

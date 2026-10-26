@@ -1,0 +1,8 @@
+{
+  "cisa_kev": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+  "github_advisories": "https://api.github.com/advisories",
+  "nvd_cves": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+  "epss": "https://api.first.org/data/v1/epss",
+  "aws_security_bulletins": "https://aws.amazon.com/security/security-bulletins/rss/",
+  "thn_news": "https://thehackernews.com/feeds/posts/default"
+}
