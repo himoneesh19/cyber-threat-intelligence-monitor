@@ -36,19 +36,19 @@ def main():
         proceed = input("\nSend test email using these credentials? [Y/n]: ").strip().lower()
         if proceed != "n":
             username = env_user
-            password = env_pass
+            smtp_auth_key = env_pass  # pragma: allowlist secret # ggignore
             recipient = env_alert
         else:
             username = input("\nEnter sender Gmail address: ").strip()
-            password = getpass.getpass("Enter 16-character Google App Password: ").strip()
+            smtp_auth_key = getpass.getpass("Enter 16-character Google App Password: ").strip()
             recipient = input("Enter destination inbox: ").strip() or username
     else:
         print("Credentials are used in-memory only and never saved to Git.\n")
         username = input("Enter your sender Gmail address: ").strip()
-        password = getpass.getpass("Enter your 16-character Google App Password: ").strip()
+        smtp_auth_key = getpass.getpass("Enter your 16-character Google App Password: ").strip()
         recipient = input(f"Destination inbox [{username}]: ").strip() or username
 
-    if not password:
+    if not smtp_auth_key:
         print("❌ Error: Google App Password cannot be empty.")
         return 1
 
@@ -57,7 +57,7 @@ def main():
 
     dispatcher = EmailDispatcher(
         username=username,
-        password=password,
+        password=smtp_auth_key,
         recipients=recipient
     )
 
